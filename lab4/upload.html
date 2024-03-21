@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Lab4 AND103</h1>
+<form id="uploadForm" action="/uploadfile" method="post" enctype="multipart/form-data">
+    <input type="file" name="myfile" id="fileInput">
+    <input type="submit" value="tai file len">
+</form>
+
+<div id="preview"></div>
+
+<script>
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        const img = new Image();
+        img.src = e.target.result;
+        img.style.maxWidth = '40%'; // Đảm bảo ảnh không vượt quá chiều rộng của phần tử chứa
+        document.getElementById('preview').innerHTML = '';
+        document.getElementById('preview').appendChild(img);
+    };
+    
+    reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>

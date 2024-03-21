@@ -32,7 +32,6 @@ public class Login_PH42640 extends AppCompatActivity {
 
     TextView txtLoginPhone;
 
-    // b1 : khởi tạo FirebaseAuth
     FirebaseAuth mAuth;
 
     @Override
